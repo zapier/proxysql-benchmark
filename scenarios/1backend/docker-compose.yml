@@ -1,0 +1,50 @@
+version: "2"
+
+services:
+  sysbench:
+    build:
+      context: ./
+      dockerfile: Dockerfile.sysbench
+    links:
+      - proxysql
+      - db1
+  proxysql:
+    image: severalnines/proxysql:latest
+    links:
+      - db1
+    ports:
+      # ProxySQL admin port for MySQL commands
+      - "6032:6032"
+      # ProxySQL main port
+      - "6033:6033"
+    volumes:
+      - ./proxysql.cnf:/etc/proxysql.cnf
+    privileged: true
+
+    # TODO(aismail): remove these hardcoded labels and add them in the template
+    # as a variable by using docker-inspect on the image.
+    labels:
+      "com.proxysql.config": "simple"
+      "com.proxysql.interactive": "false"
+      "com.proxysql.os": "ubuntu14"
+      "com.proxysql.purpose": "testing"
+      "com.proxysql.type": "proxysql"
+      "vendor": "proxysql"
+
+  db1:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: sbtest1
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: sbtest
+    expose:
+      - "3306"
+    ports:
+      - "13306:3306"
+    # TODO(aismail): remove these hardcoded labels and add them in the template
+    # as a variable by using docker-inspect on the image.
+    labels:
+      "com.proxysql.type": "mysql"
+      "vendor": "proxysql"
+      "com.proxysql.hostgroup": "0"

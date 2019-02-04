@@ -1,0 +1,11 @@
+FROM centos:latest
+
+ADD proxysql.repo /etc/yum.repos.d/proxysql.repo
+
+RUN yum install -y proxysql mariadb
+
+EXPOSE 6032 6033
+
+#CMD ["tail", "-f", "/dev/null"]
+
+CMD ["proxysql", "-f"]

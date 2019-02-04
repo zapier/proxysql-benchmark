@@ -1,0 +1,6 @@
+FROM centos:latest
+
+RUN yum install -y epel-release
+RUN yum install -y sysbench mariadb
+
+CMD ["tail", "-f", "/dev/null"]
