@@ -1,0 +1,2 @@
+# proxysql-benchmark
+Benchmark proxysql
