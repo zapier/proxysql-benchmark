@@ -1,5 +1,7 @@
 # proxysql-benchmark
-Benchmark proxysql
+Benchmark proxysql.
+
+**This is just an example, and not for production use. Any secrets in use in this repo is only for the sake of demo and experimental use.**
 
 ## List scenarios
 
