@@ -1,12 +1,8 @@
 ## Security
 
-If you believe you have found a security vulnerability, please report it to me as described below.
+If you believe you have found a security vulnerability, please feel free to open an issue in this repository. A pull request with a fix will be highly apprectiated.
 
 ## Reporting Security Issues
-
-**Please do not report security vulnerabilities through public GitHub issues.** Instead, please report them to me directly at [myoung34@my.apsu.edu](mailto:myoung34@my.apsu.edu).  
-
-If you'd like to communicate securely, my keybase is [here](https://keybase.io/3vilpenguin)
 
 Please include the requested information listed below (as much as you can provide) to help better understand the nature and scope of the possible issue:
 
@@ -20,4 +16,4 @@ Please include the requested information listed below (as much as you can provid
 
 ## Preferred Languages
 
-I prefer all communications to be in English.
+Communication in English is preferred.
